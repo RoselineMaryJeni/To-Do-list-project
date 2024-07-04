@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>To Do List</title>
+        <style>@import url("https://fonts.googleapis.com/css?family=Gochi+Hand");
+            body {
+              
+              background-image: url("set.jpg");
+              background-size:100% 100%;
+              background-repeat: no-repeat;
+              min-height: 70vh;
+              padding: 1rem;
+              box-sizing: border-box;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              color: #494a4b;
+              font-family: "Tahoma", cursive;
+              font-size: 130%;
+            }
+            
+            @media only screen and (min-width: 500px) {
+              body {
+                min-height: 100vh;
+              }
+            }
+            .container {
+              width: 100%;
+              height: auto;
+              min-height: 500px;
+              max-width: 500px;
+              min-width: 250px;
+              background: #f1f5f8;
+              background-image:url("");
+              background-size: 25px 25px;
+              border-radius: 20px;
+              box-shadow: 4px 3px 7px 2px #00000040;
+              padding: 1rem;
+              box-sizing: border-box;
+            }
+           
+            
+            
+            
+            @media only screen and (min-width: 500px) {
+              .row {
+                font-size: 2rem;
+              }
+            }
+            
+           .form_group {
+              box-sizing: border-box;
+              background-color: transparent;
+              padding: 0.7rem;
+              border-bottom-right-radius: 15px 3px;
+              border-bottom-left-radius: 3px 15px;
+              border: solid 3px transparent;
+              border-bottom: dashed 3px #ea95e0;
+              font-family: "tahoma", cursive;
+              font-size: 1rem;
+              color: rgba(63, 62, 65, 0.7);
+              width: 70%;
+              margin-bottom: 20px;
+              
+            }
+            .form_group:focus {
+              outline: none;
+              border: solid 3px #ea95e0;
+            }
+            
+            @media only screen and (min-width: 500px) {
+              .form_group {
+                width: 60%;
+              }
+            }
+            
+            #box{
+                text-align: center;
+            }
+           
+            .row ul {
+              position: relative;
+              padding: 20px; 
+              font-size: 1rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <img style="width:80px;height:80px"src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/756881/laptop.svg">
+            <img style="width:80px;height:80px;position:absolute;left:700px;" src="https://thumbs.dreamstime.com/b/to-do-list-people-white-background-cartoon-character-survey-vector-illustration-flat-corporate-document-208167451.jpg">
+            <img src="OIP.jpeg" style="width:80px;height:80px;position:absolute;left:900px;">
+            <h1 class="row" style="text-align: center;">To Do List</h1>
+            <br><br>
+            <div class="row">
+                <form>
+                    <div class="input-group">
+                        <input type="text" placeholder="todo-item" id="box" style="width:30vw">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="button" value="Add" style="width:10vw;text-align:center;" onclick="add_item()">
+                    </div>
+                </form>
+                <div class="row">
+                    <ul id="list_item">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script>
+            function add_item(){
+                let item=document.getElementById("box");
+                let list_item=document.getElementById("list_item");
+                if(item.value!="")
+                {
+                    let make_li=document.createElement("li");
+                    make_li.appendChild(document.createTextNode(item.value));
+                    list_item.appendChild(make_li);
+                    item.value=""
+                    make_li.onclick=function()
+                    {
+                        this.parentNode.removeChild(this);
+                    }
+                }
+                else{
+                    alert("Please add a value to item");
+                }
+            }
+        </script>
+    </body>
+</html>
